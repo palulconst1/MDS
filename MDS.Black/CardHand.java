@@ -20,6 +20,14 @@ public class CardHand {
         return this.CardHand.elementAt(index);
     }
 
+    public Card lastElement(){
+        return this.CardHand.lastElement();
+    }
+
+    public int lastElementId(){
+        return this.CardHand.size()-1;
+    }
+
     public int sumHard(){
         int sum = 0;
         int nrA = 0;

@@ -9,7 +9,7 @@ public class CardDeck {
 
     public CardDeck(){
         String[] symbols = {"♠","♣","♥","♦"};
-        String[] numbers = {"1","2","3","4","5","6","7","8","9","10","A","J","Q","K"};
+        String[] numbers = {"2","3","4","5","6","7","8","9","10","A","J","Q","K"};
         this.CardDeck = new Vector<>();
         for(int i = 0;i< numbers.length;i++)
             for(int j=0;j<symbols.length;j++)

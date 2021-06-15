@@ -17,7 +17,7 @@ De asemenea sunt implementate 10 user stories in Backlog + schema cu realizarile
 ![image](https://user-images.githubusercontent.com/61537857/122063533-06d36480-cdf9-11eb-825c-e6e5a9d0abae.png)
 
 - [x] Folosirea unui build tool \
-Am folosit default build tool al lui Intellij IDEA\
+Am folosit default build tool al lui Intellij IDEA \
 - [x] refactoring(minim 1), code standards
 
 - [x] design patterns

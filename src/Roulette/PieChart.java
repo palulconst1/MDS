@@ -25,12 +25,14 @@ class Slice {
     }
 }
 
-class PieChart extends JComponent{
+class PieChart extends JPanel{
 
     private ArrayList<Slice> slices;
     private Integer angle = 90;
 
     PieChart() {
+        super();
+        setVisible(true);
         getSlices();
     }
 
@@ -62,10 +64,12 @@ class PieChart extends JComponent{
     {
         this.angle = angle;
         repaint();
+        this.setVisible(true);
     }
 
     public void paint(Graphics g) {
         drawPie((Graphics2D) g, getBounds());
+        this.setVisible(true);
     }
 
     void drawPie(Graphics2D g, Rectangle area) {

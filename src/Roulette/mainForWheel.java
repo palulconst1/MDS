@@ -1,6 +1,6 @@
 package Roulette;
 
-public class main {
+public class mainForWheel {
     public static void main(String[] args) throws InterruptedException {
         Integer balance = 1000;
         BetSystem betSystem = new BetSystem(balance);

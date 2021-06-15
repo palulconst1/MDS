@@ -20,7 +20,7 @@ public class AllGui{
 
     private BetSystem betSystem;
 
-    private PieChart wheelRoulette;
+    private WheelGUI wheelRoulette;
     private MyRoulette myRoulette;
 
     private JButton spin;
@@ -48,6 +48,7 @@ public class AllGui{
         addButtons();
         addBetArea();
         addSpinButton();
+        //addWheel();
         //getAllData();
     }
 
@@ -64,19 +65,18 @@ public class AllGui{
         //addWheel();
     }
 
-    public void addWheel() {
-        wheelRoulette = new PieChart();
-        wheelRoulette.setSize(20, 20);
-        //wheelRoulette.setVisible(true);
-        System.out.println(wheelRoulette.getPreferredSize());
-
-        JPanel panel = new JPanel();
-        panel.setBounds(40,80,200,200);
-
-        panel.add(wheelRoulette);
-
-        gameFrame.add(panel);
-    }
+//    public void addWheel() throws InterruptedException {
+//        wheelRoulette = new WheelGUI();
+//        //wheelRoulette.setVisible(true);
+//        constraints.fill = GridBagConstraints.CENTER;
+//        constraints.gridx = 0;
+//        constraints.gridy = lineFollower++;
+//
+//        gameFrame.add(wheelRoulette.getRoulette(), constraints);
+//        gameFrame.setVisible(true);
+//        wheelRoulette.getRoulette().paint(gameFrame.getGraphics());
+//        gameFrame.repaint();
+//    }
 
     private void addDialogBox()
     {

@@ -13,6 +13,7 @@ public class WheelGUI{
 
     WheelGUI() throws InterruptedException {
         roulette = new PieChart();
+        roulette.setSize(30, 30);
     }
 
     public PieChart getRoulette() {

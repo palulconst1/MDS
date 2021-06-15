@@ -27,7 +27,7 @@ See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
 
 ### MICRO-COMPONENTS
 * #### Database
-    - [x] JSON formatted DB to save users and income
+    - [x] CSV file that acts as a DataBase
 * #### Interface
     - [ ] Templated object interface unique for every component 
 * #### Player

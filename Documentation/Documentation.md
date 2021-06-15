@@ -8,6 +8,7 @@
 
  - [x] Design/arhitectura/UML \
     Se afla detaliata in fisierul Componente.md
+    De asemenea fiecare folder are un info ce explica clasele + comentarii pe cod
  
  - [x] Source control(branch creation,merge/rebase, minim 10 commits) 
  

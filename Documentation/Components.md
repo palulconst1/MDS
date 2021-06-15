@@ -7,37 +7,35 @@ See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
 
 ### MACRO-COMPONENTS
 * #### Menu - functionalitie
-    - [ ] Exit - function to exit the game
-    - [ ] Choose game - chose from the 3 games
+    - [x] Exit - function to exit the game
+    - [x] Choose game - chose from the 3 games
     - [ ] Stats - see your income from the games
 * #### Slots = functionalities
-    - [ ] Choose bet
-    - [ ] Play
-    - [ ] Display win
+    - [x] Choose bet
+    - [x] Play
+    - [x] Display win
 * #### Blackjack - functionalities
-    - [ ] Choose bet
-    - [ ] Get hand
-    - [ ] Hit
-    - [ ] Stand
-    - [ ] Display win
+    - [x] Choose bet
+    - [x] Get hand
+    - [x] Hit
+    - [x] Stand
+    - [x] Display win
 * #### Roulette - functionalities
-    - [ ] Choose bet
-    - [ ] Play
-    - [ ] Display win
+    - [x] Choose bet
+    - [x] Play
+    - [x] Display win
 
 ### MICRO-COMPONENTS
 * #### Database
     - [ ] JSON formatted DB to save users and income
 * #### Interface
-    - [ ] Templated object interface used by every component
-    - [ ] Render 
+    - [ ] Templated object interface unique for every component 
 * #### Player
     - [ ] get info from DB
     - [ ] add info to DB
 * #### Game - Interface Component
     - [ ] Game state - component
     - [ ] Create the game
-    - [ ] Render the game
 * #### Win Screen - Game Component
     - [ ] Score
     - [ ] Income

@@ -1,8 +1,4 @@
 package slots;
-
-import model.User;
-import service.UserService;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -13,15 +9,17 @@ import java.util.ArrayList;
 import javax.swing.border.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import service.*;
+import model.*;
 import java.util.Set;
 
 public class Slots {
 
     private JButton btnCash, btnSpin;
-    private JCheckBox cbAlwaysWin, cbSuperJackpot, cbTrollface;
     private JFrame frmFrame;
     private JLabel lblCredits, lblLost, lblMatchThree, lblMatchTwo, lblMoney, lblReel1, lblReel2, lblReel3, lblStatus, lblWon;
-    private JPanel pnlReels, pnlReel1, pnlReel2, pnlReel3;
+    private JPanel backgroundSquare, backgroundSquare1, backgroundSquare2, backgroundSquare3;
     private JProgressBar prgbarCheatUnlocker;
     private JSeparator sepCheats, sepStats, sepStats2, sepStatus;
     private int credits = 100, boughtCredits = 100, bet = 15, match1, match2, win, lost;
@@ -41,28 +39,30 @@ public class Slots {
         layoutFrame();
         layoutReels();
         layoutOther();
+
     }
 
     private void createForm() {
 
         frmFrame = new JFrame();
+        frmFrame.setSize(768,256);
         frmFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frmFrame.setTitle("Slots");
         frmFrame.setResizable(false);
         frmFrame.setVisible(true);
 
-        pnlReels = new JPanel();
-        pnlReels.setBorder(BorderFactory.createEtchedBorder());
+        backgroundSquare = new JPanel();
+        backgroundSquare.setBorder(BorderFactory.createEtchedBorder());
 
-        pnlReel1 = new JPanel();
-        pnlReel1.setBackground(new Color(255, 215, 0));
-        pnlReel1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
-        pnlReel2 = new JPanel();
-        pnlReel2.setBackground(new Color(255, 216, 0));
-        pnlReel2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
-        pnlReel3 = new JPanel();
-        pnlReel3.setBackground(new java.awt.Color(255, 215, 0));
-        pnlReel3.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
+        backgroundSquare1 = new JPanel();
+        backgroundSquare1.setBackground(new Color(255, 215, 0));
+        backgroundSquare1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
+        backgroundSquare2 = new JPanel();
+        backgroundSquare2.setBackground(new Color(255, 216, 0));
+        backgroundSquare2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
+        backgroundSquare3 = new JPanel();
+        backgroundSquare3.setBackground(new java.awt.Color(255, 215, 0));
+        backgroundSquare3.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
 
     }
 
@@ -124,21 +124,6 @@ public class Slots {
         btnCash.addActionListener(new buyCredits());
 
 
-        cbAlwaysWin = new JCheckBox();
-        cbAlwaysWin.setText("Always Win Mode");
-        cbAlwaysWin.setEnabled(false);
-        cbAlwaysWin.addActionListener(new AlwaysWinHandler());
-
-        cbTrollface = new JCheckBox();
-        cbTrollface.setText("Trollface");
-        cbTrollface.setEnabled(false);
-        cbTrollface.addActionListener(new TrollfaceHandler());
-
-        cbSuperJackpot = new JCheckBox();
-        cbSuperJackpot.setText("Super Jackpot");
-        cbSuperJackpot.setEnabled(false);
-        cbSuperJackpot.addActionListener(new SuperPrizeHandler());
-
     }
 
     private void layoutFrame() {
@@ -157,76 +142,76 @@ public class Slots {
 
     private void layoutReels() {
 
-        GroupLayout pnlReelsLayout = new GroupLayout(pnlReels);
-        pnlReels.setLayout(pnlReelsLayout);
-        pnlReelsLayout.setHorizontalGroup(
-                pnlReelsLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReelsLayout.createSequentialGroup()
+        GroupLayout backgroundSquareLayout = new GroupLayout(backgroundSquare);
+        backgroundSquare.setLayout(backgroundSquareLayout);
+        backgroundSquareLayout.setHorizontalGroup(
+                backgroundSquareLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquareLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(pnlReel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backgroundSquare1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(pnlReel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backgroundSquare2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(pnlReel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backgroundSquare3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlReelsLayout.setVerticalGroup(
-                pnlReelsLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReelsLayout.createSequentialGroup()
+        backgroundSquareLayout.setVerticalGroup(
+                backgroundSquareLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquareLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(pnlReelsLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(pnlReel2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(pnlReel1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(pnlReel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(backgroundSquareLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(backgroundSquare2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(backgroundSquare1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(backgroundSquare3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        GroupLayout pnlReel1Layout = new GroupLayout(pnlReel1);
-        pnlReel1.setLayout(pnlReel1Layout);
-        pnlReel1Layout.setHorizontalGroup(
-                pnlReel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel1Layout.createSequentialGroup()
+        GroupLayout backgroundSquare1Layout = new GroupLayout(backgroundSquare1);
+        backgroundSquare1.setLayout(backgroundSquare1Layout);
+        backgroundSquare1Layout.setHorizontalGroup(
+                backgroundSquare1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel1)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlReel1Layout.setVerticalGroup(
-                pnlReel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel1Layout.createSequentialGroup()
+        backgroundSquare1Layout.setVerticalGroup(
+                backgroundSquare1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel1)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        GroupLayout pnlReel2Layout = new GroupLayout(pnlReel2);
-        pnlReel2.setLayout(pnlReel2Layout);
-        pnlReel2Layout.setHorizontalGroup(
-                pnlReel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel2Layout.createSequentialGroup()
+        GroupLayout backgroundSquare2Layout = new GroupLayout(backgroundSquare2);
+        backgroundSquare2.setLayout(backgroundSquare2Layout);
+        backgroundSquare2Layout.setHorizontalGroup(
+                backgroundSquare2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel2)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlReel2Layout.setVerticalGroup(
-                pnlReel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel2Layout.createSequentialGroup()
+        backgroundSquare2Layout.setVerticalGroup(
+                backgroundSquare2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel2)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        GroupLayout pnlReel3Layout = new GroupLayout(pnlReel3);
-        pnlReel3.setLayout(pnlReel3Layout);
-        pnlReel3Layout.setHorizontalGroup(
-                pnlReel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel3Layout.createSequentialGroup()
+        GroupLayout backgroundSquare3Layout = new GroupLayout(backgroundSquare3);
+        backgroundSquare3.setLayout(backgroundSquare3Layout);
+        backgroundSquare3Layout.setHorizontalGroup(
+                backgroundSquare3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare3Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel3)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnlReel3Layout.setVerticalGroup(
-                pnlReel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlReel3Layout.createSequentialGroup()
+        backgroundSquare3Layout.setVerticalGroup(
+                backgroundSquare3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(backgroundSquare3Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblReel3)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -253,15 +238,12 @@ public class Slots {
                                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                                 .addGroup(layout.createSequentialGroup()
-                                                                        .addComponent(cbAlwaysWin)
                                                                         .addGap(18, 18, 18)
-                                                                        .addComponent(cbTrollface)
                                                                         .addGap(18, 18, 18)
-                                                                        .addComponent(cbSuperJackpot)
                                                                         .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 )
                                                                 .addComponent(btnSpin, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(pnlReels, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(backgroundSquare, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addComponent(sepStats, GroupLayout.Alignment.TRAILING)
                                                                 .addComponent(lblStatus, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addGroup(layout.createSequentialGroup()
@@ -287,7 +269,7 @@ public class Slots {
                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(pnlReels, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backgroundSquare, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(ComponentPlacement.RELATED)
                                 .addComponent(btnSpin, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(ComponentPlacement.UNRELATED)
@@ -318,9 +300,7 @@ public class Slots {
                                 .addComponent(prgbarCheatUnlocker, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cbAlwaysWin)
-                                        .addComponent(cbTrollface)
-                                        .addComponent(cbSuperJackpot)
+
                                 )
                                 .addContainerGap())
         );
@@ -369,7 +349,7 @@ public class Slots {
     class spinClick implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             if ( credits < bet &&  askedCredits > funds) {
-              ;
+                ;
             } else if ((credits - bet) >= 0) {
                 generateNumbers();
                 matchCheck();
@@ -381,30 +361,11 @@ public class Slots {
 
     public void generateNumbers() {
         Random rand = new Random();
-        if (cbAlwaysWin.isSelected() == true) {
-            int winType = rand.nextInt(4);
-            reel1 = rand.nextInt(images.size());
-            if (winType == 0) {
-                reel2 = reel1;
-                reel3 = reel1;
-            } else if (winType == 1) {
-                reel2 = reel1;
-            } else if (winType == 2) {
-                reel3 = reel1;
-            } else {
-                if (reel1 >= 0 ) {
-                    reel2 = reel1 + 1;
-                    reel3 = reel1 + 1;
-                } if (reel1 == images.size()-1) {
-                    reel2 = reel1 - 1;
-                    reel3 = reel1 - 1;
-                }
-            }
-        } else {
-            reel1 = rand.nextInt(images.size());
-            reel2 = rand.nextInt(images.size());
-            reel3 = rand.nextInt(images.size());
-        }
+
+        reel1 = rand.nextInt(images.size());
+        reel2 = rand.nextInt(images.size());
+        reel3 = rand.nextInt(images.size());
+
         setReelIcon(reel1, reel2, reel3);
     }
 
@@ -416,16 +377,16 @@ public class Slots {
 
     public void matchCheck() {
         if (reel1 == reel2 && reel2 == reel3) {
-            lblStatus.setText("You matched THREE symbols ("+images.get(reel1).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
+            lblStatus.setText("You matched 3 symbols ("+images.get(reel1).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
             lblMatchThree.setText("Matched Three: "+matchThree());
 
         } else if (reel1 == reel2 || reel1 == reel3) {
-            lblStatus.setText("You matched TWO symbols ("+images.get(reel1).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
-            lblMatchTwo.setText("Matched Two: "+matchTwo());
+            lblStatus.setText("You matched 2 symbols ("+images.get(reel1).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
+            lblMatchTwo.setText("Matched 2: "+matchTwo());
 
         } else if (reel2 == reel3) {
-            lblStatus.setText("You matched TWO symbols ("+images.get(reel2).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
-            lblMatchTwo.setText("Matched Two: "+matchTwo());
+            lblStatus.setText("You matched 2 symbols ("+images.get(reel2).getDescription()+")! +£"+df.format(getPrize(payout))+"!");
+            lblMatchTwo.setText("Matched 2: "+matchTwo());
 
         } else {
             lblStatus.setText("Sorry, you didn't match any symbols. -"+bet+" credits!");
@@ -436,72 +397,21 @@ public class Slots {
         lblWon.setText("Wins: "+win());
     }
 
-    public void prgBarCheck() {
-        if (prgbarCheatUnlocker.getValue() <= 99) {
-            prgbarCheatUnlocker.setValue(win);
-        } else if (prgbarCheatUnlocker.getValue() == 100) { // after 100 wins unlock the cheats.
-            prgbarCheatUnlocker.setValue(100);
-            lblStatus.setText("100 wins! Congratulations you've unlocked the cheat menu!");
-            cbTrollface.setEnabled(true);
-            cbSuperJackpot.setEnabled(true);
-            cbAlwaysWin.setEnabled(true);
-        }
-    }
 
     public double getPrize(double prize) {
         if (reel1 == reel2 && reel2 == reel3) {
-            if (cbSuperJackpot.isSelected() == true) {
-                prize *= 100;
-            } else {
-                prize = payout;
-            }
-        } else if (reel1 == reel2 || reel1 == reel3 || reel2 == reel3) {
-            if (cbSuperJackpot.isSelected() == true) {
-                prize *= 50;
-            } else {
-                prize = payout / 5;
-            }
-        } else {
+
+            prize = payout;
+        }
+        else if (reel1 == reel2 || reel1 == reel3 || reel2 == reel3) {
+
+            prize = payout / 5;
+        }
+        else {
             prize = 0;
         }
         return prize;
     }
-
-    class SuperPrizeHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            if (cbSuperJackpot.isSelected() == true) {
-                lblStatus.setText("Super Prize mode ENABLED! The £ won is now x100!");
-            }
-            if (cbSuperJackpot.isSelected() == false) {
-                lblStatus.setText("Super Prize mode DISABLED! :'(");
-            }
-        }
-    }
-
-    class AlwaysWinHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            if (cbAlwaysWin.isSelected() == true) {
-                lblStatus.setText("Always Win mode ENABLED! 7-7-7's here we come!");
-            }
-            if (cbAlwaysWin.isSelected() == false) {
-                lblStatus.setText("Always Win mode DISABLED! :'(");
-            }
-        }
-    }
-
-    class TrollfaceHandler implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-            if (cbTrollface.isSelected() == true && images.get(images.size()-1) != createImageIcon("images/Trollface.png", "Trollface")) {
-                images.add(createImageIcon("images/Trollface.png", "Trollface")); // adds a bonus image to the images ArrayList.
-                lblStatus.setText("Trollface mode ENABLED! Trolololololol!");
-            }
-            if (cbTrollface.isSelected() == false && images.get(images.size()-1) != createImageIcon("images/Trollface.png", "Trollface")) {
-                images.remove(images.size()-1); // removes the bonus image (or last one added to the ArrayList) from the images ArrayList.
-                lblStatus.setText("Trollface mode DISABLED! :'(");
-            }
-        }
-    }
-
 
 
     public void imagesList() {
@@ -542,36 +452,18 @@ public class Slots {
 
     public int win() {
         win = match1 + match2;
-        prgBarCheck();
         return win;
     }
 
-    public static void main(String args[]) {
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Slots.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Slots.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Slots.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Slots.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
+//    public static void main(String args[]) {
+//
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //
 //            public void run() {
 //                new Slots();
 //            }
 //        });
-
-    }
+//
+//    }
 
 }

@@ -7,13 +7,10 @@ import java.awt.event.*;
 import Roulette.AllGui;
 import Roulette.BetSystem;
 import Roulette.MyRoulette;
-import Roulette.*;
-import model.*;
 import service.*;
 import slots.Slots;
 
 import java.io.IOException;
-import java.util.Set;
 
 public class Menu
         extends JFrame
@@ -28,7 +25,7 @@ public class Menu
 
     public Menu()
     {
-        setTitle("Menu");
+        setTitle("menu");
         setBounds(300, 90, 500, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
@@ -36,7 +33,7 @@ public class Menu
         container = getContentPane();
         container.setLayout(null);
 
-        title = new JLabel("Menu");
+        title = new JLabel("menu");
         title.setFont(new Font("Arial", Font.PLAIN, 30));
         title.setSize(300, 30);
         title.setLocation(200, 30);

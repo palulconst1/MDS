@@ -8,12 +8,12 @@
 
 ### Content
 We are working on a platform that has three games:
-> 1. Mechanical Slots (Random matrices implementation)
+> 1. Mechanical slots (Random matrices implementation)
 > 2. Classical Blackjack without split
 > 3. Red-black-0 Roulette
 
 And we have the following utilities:
-> 1. Menu with authentication
+> 1. menu with authentication
 > 2. Database with user history
 > 3. Interface
 

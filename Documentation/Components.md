@@ -6,10 +6,10 @@ See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
 # COMPONENTS
 
 ### MACRO-COMPONENTS
-* #### Menu - functionalitie
+* #### menu - functionalitie
     - [x] Exit - function to exit the game
     - [x] Choose game - chose from the 3 games
-* #### Slots = functionalities
+* #### slots = functionalities
     - [x] Choose bet
     - [x] Play
     - [x] Display win
@@ -43,6 +43,6 @@ See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
 * #### Auth - MENU Component
     - [x] User
     - [x] Password
-* #### Slots - Game Component
+* #### slots - Game Component
 * #### Blackjack - Game Component
 * #### Roulette - Game Component

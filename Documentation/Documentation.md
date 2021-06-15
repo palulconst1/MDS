@@ -7,7 +7,7 @@ De asemenea sunt implementate 10 user stories in Backlog + schema cu realizarile
 
  - [x] Design/arhitectura/UML \
  Se afla detaliata in fisierul Componente.md \
- \
+ 
  
  - [x] Source control(branc creation,merge/rebase, minim 10 commits) \
  ![IMG-20210615-WA0002](https://user-images.githubusercontent.com/61537857/122064036-7a757180-cdf9-11eb-9145-2bfebd26fb6b.jpg)

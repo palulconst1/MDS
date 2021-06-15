@@ -1,6 +1,6 @@
 # WORK IN PROGRESS
 See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
-> Progress made until done: *100%*
+> Progress made: *100%*
 
 
 # COMPONENTS

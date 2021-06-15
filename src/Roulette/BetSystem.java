@@ -6,11 +6,11 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
-class BetSystem {
+public class BetSystem {
     private Integer balance;
     private Integer bet = 0;
 
-    BetSystem(Integer balance) {
+    public BetSystem(Integer balance) {
         this.balance = balance;
     }
 
@@ -35,6 +35,7 @@ class BetSystem {
     private int boolToInt(Boolean value)
     {
         if (value.equals(true)) return 1;
+//        if(value == null) return 0;
         return -1;
     }
 }

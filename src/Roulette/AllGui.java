@@ -1,11 +1,16 @@
 package Roulette;
 
+import model.User;
+import service.UserService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class AllGui{
 
@@ -177,7 +182,14 @@ public class AllGui{
 
     private Integer getBet()
     {
-        return Integer.parseInt(bet.getText());
+        try {
+            return Integer.parseInt(bet.getText());
+        }
+        catch (Exception e){
+            bet.setText("0");
+            return 0;
+        }
+
     }
 
     private void addBetArea()
@@ -221,6 +233,23 @@ public class AllGui{
                 System.out.println(pseudoScore);
                 betSystem.setBet(getBet());
                 betSystem.setBalance(pseudoScore);
+                try {
+                    UserService userService = new UserService().getInstance();
+                    Set<User> usrs = userService.getUsers();;
+                    for( User usr:usrs) {
+                        if (usr.getEmail().equals(userService.getLogged().getEmail())) {
+                            userService.remove(usr);
+                            int x = usr.getUserID();
+                            usr = new User(usr.getEmail(), usr.getPassword());
+                            usr.setCurrency(betSystem.getBalance());
+                            usr.setUserID(x);
+                            userService.add(usr);
+                            break;
+                        }
+                    }
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
 
                 changeBalanceBox();
                 ///SOMETHING WRONG WITH THE SCORE CALCULATION

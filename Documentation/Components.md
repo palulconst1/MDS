@@ -27,23 +27,23 @@ See [*trello*](https://trello.com/b/M975Rce7/mds ) for updates on this project
 
 ### MICRO-COMPONENTS
 * #### Database
-    - [ ] JSON formatted DB to save users and income
+    - [x] JSON formatted DB to save users and income
 * #### Interface
     - [ ] Templated object interface unique for every component 
 * #### Player
-    - [ ] get info from DB
-    - [ ] add info to DB
+    - [X] get info from DB
+    - [x] add info to DB
 * #### Game - Interface Component
     - [ ] Game state - component
     - [ ] Create the game
 * #### Win Screen - Game Component
-    - [ ] Score
-    - [ ] Income
+    - [x] Score
+    - [x] Income
 * #### MENU - Interface Component
-    - [ ] Auth - component
+    - [x] Auth - component
 * #### Auth - MENU Component
-    - [ ] User
-    - [ ] Password
+    - [x] User
+    - [x] Password
 * #### Slots - Game Component
 * #### Blackjack - Game Component
 * #### Roulette - Game Component

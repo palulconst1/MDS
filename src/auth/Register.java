@@ -107,7 +107,6 @@ public class Register
                 User obj = new User(String.valueOf(temail.getText()), String.valueOf(tpassword.getText()));
                 try {
                     userService = UserService.getInstance();
-                    userService.loadUsers();
                     int ok = 1;
                     Set<User> usrs = userService.getUsers();
                     for( User usr:usrs){

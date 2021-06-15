@@ -35,5 +35,5 @@
 
 - [x] design patterns
 
-    Am utilizat clase de tip singleton pentru a instantia fiecare tip de joc in parte. 
+    Am utilizat clase de tip singleton pentru useri. 
 

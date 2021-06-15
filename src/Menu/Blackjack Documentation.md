@@ -32,6 +32,8 @@ This is a card game in which you can bet if your hand of cards is les than 21
     
     Constructorul clasei imi creeaza fereastra de start unde se pune bet-ul ( se verifica de asemenea daca acesta este de tip int/valid <= fonduriPlayer)
     De asemenea, exista si un buton pentru a se afisa regulile jocului.
+    Metoda drawCard imi deseneaza cartea pe interfata grafica
+    Metoda StartGame() porneste jocul in sine de blackjack la finalul caruia se poate apasa butonul PlayAgain pentru a juca din nou
     
     
     
